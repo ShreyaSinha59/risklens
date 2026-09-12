@@ -161,40 +161,44 @@ def persist_all(desks, books, issuers, instruments, positions, levels, valued, s
                 sens_out["as_of_date"] = AS_OF_DATE
                 upsert_df(cur, "sensitivities", sens_out, ["position_id"])
 
-                for scope_type, scope_value, metric, value in risk_result_rows:
-                    upsert_row(cur, "risk_results", ["as_of_date", "scope_type", "scope_value", "metric"],
-                               {"as_of_date": AS_OF_DATE, "scope_type": scope_type, "scope_value": scope_value,
-                                "metric": metric, "value": float(value)})
-                for row in limits_summary.itertuples():
-                    upsert_row(cur, "risk_results", ["as_of_date", "scope_type", "scope_value", "metric"],
-                               {"as_of_date": AS_OF_DATE, "scope_type": row.scope, "scope_value": row.scope_value,
-                                "metric": row.metric, "value": float(row.actual_value)})
+                # all risk_results rows (VaR/ES + limit actuals) in one batch
+                rr_records = [
+                    {"as_of_date": AS_OF_DATE, "scope_type": scope_type, "scope_value": scope_value,
+                     "metric": metric, "value": float(value)}
+                    for scope_type, scope_value, metric, value in risk_result_rows
+                ] + [
+                    {"as_of_date": AS_OF_DATE, "scope_type": row.scope, "scope_value": row.scope_value,
+                     "metric": row.metric, "value": float(row.actual_value)}
+                    for row in limits_summary.itertuples()
+                ]
+                bulk_upsert(cur, "risk_results", rr_records, ["as_of_date", "scope_type", "scope_value", "metric"])
 
                 upsert_row(cur, "pnl_attribution", ["as_of_date", "scenario_date"],
                            {"as_of_date": AS_OF_DATE, **{k: (v if not hasattr(v, "item") else float(v)) for k, v in pnl_attr.items()}})
 
-                for scenario_name, position_id, pnl in stress_rows:
-                    upsert_row(cur, "stress_results", ["as_of_date", "scenario_name", "position_id"],
-                               {"as_of_date": AS_OF_DATE, "scenario_name": scenario_name,
-                                "position_id": position_id, "stress_pnl": float(pnl)})
+                stress_records = [
+                    {"as_of_date": AS_OF_DATE, "scenario_name": scenario_name,
+                     "position_id": position_id, "stress_pnl": float(pnl)}
+                    for scenario_name, position_id, pnl in stress_rows
+                ]
+                bulk_upsert(cur, "stress_results", stress_records, ["as_of_date", "scenario_name", "position_id"])
 
+                limit_records = []
                 for limit in load_limits():
                     limit = dict(limit)
                     limit["scope_type"] = limit.pop("scope")
-                    upsert_row(cur, "risk_limits", ["limit_id"], limit)
+                    limit_records.append(limit)
+                bulk_upsert(cur, "risk_limits", limit_records, ["limit_id"])
 
-                for row in controls.itertuples():
-                    details = row.details if isinstance(row.details, (list, dict)) else str(row.details)
-                    upsert_row(cur, "control_results", ["as_of_date", "control_name"],
-                               {"as_of_date": AS_OF_DATE, "control_name": row.control, "status": row.status,
-                                "severity": row.severity, "details": psycopg2.extras.Json(details)})
+                control_records = [
+                    {"as_of_date": AS_OF_DATE, "control_name": row.control, "status": row.status,
+                     "severity": row.severity,
+                     "details": psycopg2.extras.Json(row.details if isinstance(row.details, (list, dict)) else str(row.details))}
+                    for row in controls.itertuples()
+                ]
+                bulk_upsert(cur, "control_results", control_records, ["as_of_date", "control_name"])
     finally:
         conn.close()
-
-
-def upsert_df(cur, table, df, conflict_cols):
-    for record in df.to_dict("records"):
-        upsert_row(cur, table, conflict_cols, record)
 
 
 def _sanitize(value):
@@ -207,16 +211,35 @@ def _sanitize(value):
     return value
 
 
-def upsert_row(cur, table, conflict_cols, record):
-    cols = list(record.keys())
-    values = [_sanitize(record[c]) for c in cols]
-    placeholders = ", ".join(["%s"] * len(cols))
+def bulk_upsert(cur, table, records, conflict_cols):
+    """One INSERT ... VALUES (multi-row) round trip per call (paged at 1000
+    rows), instead of one round trip per row. Row-by-row upserts are fine
+    against a local Postgres socket (near-zero latency) but become the
+    dominant cost against a remote DB (Neon) - e.g. market_data alone has
+    ~17,000 rows, which at one round trip each is tens of minutes of pure
+    network wait rather than seconds."""
+    if not records:
+        return
+    cols = list(records[0].keys())
     update_cols = [c for c in cols if c not in conflict_cols]
-    sql = f'INSERT INTO {table} ({", ".join(cols)}) VALUES ({placeholders}) ' \
-          f'ON CONFLICT ({", ".join(conflict_cols)}) DO UPDATE SET ' + \
-          ", ".join(f"{c} = EXCLUDED.{c}" for c in update_cols) if update_cols else \
-          f'INSERT INTO {table} ({", ".join(cols)}) VALUES ({placeholders}) ON CONFLICT DO NOTHING'
-    cur.execute(sql, values)
+    values = [tuple(_sanitize(r[c]) for c in cols) for r in records]
+    template = "(" + ", ".join(["%s"] * len(cols)) + ")"
+    insert_cols_sql = ", ".join(cols)
+    conflict_sql = ", ".join(conflict_cols)
+    if update_cols:
+        update_sql = ", ".join(f"{c} = EXCLUDED.{c}" for c in update_cols)
+        sql = f"INSERT INTO {table} ({insert_cols_sql}) VALUES %s ON CONFLICT ({conflict_sql}) DO UPDATE SET {update_sql}"
+    else:
+        sql = f"INSERT INTO {table} ({insert_cols_sql}) VALUES %s ON CONFLICT DO NOTHING"
+    psycopg2.extras.execute_values(cur, sql, values, template=template, page_size=1000)
+
+
+def upsert_df(cur, table, df, conflict_cols):
+    bulk_upsert(cur, table, df.to_dict("records"), conflict_cols)
+
+
+def upsert_row(cur, table, conflict_cols, record):
+    bulk_upsert(cur, table, [record], conflict_cols)
 
 
 if __name__ == "__main__":
