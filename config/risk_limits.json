@@ -1,0 +1,7 @@
+[
+  {"limit_id": "VAR99_PORTFOLIO", "metric": "99% VaR", "scope": "Portfolio", "scope_value": "ALL", "limit_value": 750000, "warning_pct": 0.80},
+  {"limit_id": "STRESS_COMBINED", "metric": "Stress Loss (Combined Severe)", "scope": "Portfolio", "scope_value": "ALL", "limit_value": 10000000, "warning_pct": 0.80},
+  {"limit_id": "DV01_FI_DESK", "metric": "DV01", "scope": "Desk", "scope_value": "Fixed Income Desk", "limit_value": 50000, "warning_pct": 0.80},
+  {"limit_id": "CS01_FI_DESK", "metric": "CS01", "scope": "Desk", "scope_value": "Fixed Income Desk", "limit_value": 25000, "warning_pct": 0.80},
+  {"limit_id": "ISSUER_CONC_JPM", "metric": "Issuer Concentration (Gross Exposure)", "scope": "Issuer", "scope_value": "JPMorgan Chase & Co", "limit_value": 35000000, "warning_pct": 0.80}
+]

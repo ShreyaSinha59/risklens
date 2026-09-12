@@ -1,0 +1,14 @@
+issuer_id,issuer_name,issuer_type,country,sector,credit_rating
+ISS_UST,United States Treasury,Sovereign,US,,AA+
+ISS_UKGILT,United Kingdom Gilt,Sovereign,UK,,AA
+ISS_BUND,Federal Republic of Germany,Sovereign,DE,,AAA
+ISS_AAPL,Apple Inc,Corporate,US,Technology,AA+
+ISS_MSFT,Microsoft Corp,Corporate,US,Technology,AAA
+ISS_JPM,JPMorgan Chase & Co,Corporate,US,Financials,A+
+ISS_XOM,Exxon Mobil Corp,Corporate,US,Energy,AA-
+ISS_BAC,Bank of America Corp,Corporate,US,Financials,A
+ISS_AMZN,Amazon.com Inc,Corporate,US,Consumer Discretionary,AA
+ISS_GOOGL,Alphabet Inc,Corporate,US,Technology,AA+
+ISS_META,Meta Platforms Inc,Corporate,US,Technology,A+
+ISS_NVDA,NVIDIA Corp,Corporate,US,Technology,A+
+ISS_KO,Coca-Cola Co,Corporate,US,Consumer Staples,A+

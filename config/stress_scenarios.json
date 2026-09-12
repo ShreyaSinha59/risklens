@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Equity Selloff",
+    "description": "Illustrative single-factor stress: a sharp, broad-based equity market decline. Not a recreation of any specific historical crash.",
+    "shocks": {"equity_pct": -15}
+  },
+  {
+    "name": "Rapid Rate Increase",
+    "description": "Illustrative single-factor stress: a fast, parallel rise in government bond yields across all tenors and currencies. Not a recreation of any specific historical rate-hiking cycle.",
+    "shocks": {"yield_bp": 150}
+  },
+  {
+    "name": "Credit Spread Widening",
+    "description": "Illustrative single-factor stress: broad corporate credit spread widening across all issuers, risk-free rates unchanged. Not a recreation of any specific historical credit event.",
+    "shocks": {"credit_spread_bp": 100}
+  },
+  {
+    "name": "Combined Severe Market Stress",
+    "description": "Illustrative combined stress: equity selloff, rate rise, credit spread widening, and a volatility spike occurring together, deliberately more severe than any single-factor move to represent compounding stress. Not a recreation of any specific historical crisis (e.g. 2008 or 2020). FX is not shocked - out of this project's sensitivities scope.",
+    "shocks": {"equity_pct": -25, "yield_bp": 125, "credit_spread_bp": 200, "vol_points": 20}
+  }
+]

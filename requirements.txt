@@ -1,0 +1,11 @@
+pandas
+numpy
+requests
+python-docx
+python-pptx
+psycopg2-binary
+fastapi
+uvicorn[standard]
+streamlit
+plotly
+pytest

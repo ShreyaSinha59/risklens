@@ -1,0 +1,4 @@
+desk_id,desk_name,asset_class_focus
+DSK_EQ,Equities Desk,"Equity, Equity Option"
+DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+DSK_FX,FX Desk,FX

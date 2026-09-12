@@ -1,0 +1,41 @@
+instrument_id,instrument_name,asset_class,issuer_id,underlying_instrument_id,currency,base_currency,quote_currency,maturity_date,coupon_rate,strike_price,option_type,contract_multiplier
+AAPL-EQ,Apple Inc Common Stock,Equity,ISS_AAPL,,USD,,,,,,,
+MSFT-EQ,Microsoft Corp Common Stock,Equity,ISS_MSFT,,USD,,,,,,,
+JPM-EQ,JPMorgan Chase & Co Common Stock,Equity,ISS_JPM,,USD,,,,,,,
+XOM-EQ,Exxon Mobil Corp Common Stock,Equity,ISS_XOM,,USD,,,,,,,
+AMZN-EQ,Amazon.com Inc Common Stock,Equity,ISS_AMZN,,USD,,,,,,,
+GOOGL-EQ,Alphabet Inc Common Stock,Equity,ISS_GOOGL,,USD,,,,,,,
+META-EQ,Meta Platforms Inc Common Stock,Equity,ISS_META,,USD,,,,,,,
+NVDA-EQ,NVIDIA Corp Common Stock,Equity,ISS_NVDA,,USD,,,,,,,
+BAC-EQ,Bank of America Corp Common Stock,Equity,ISS_BAC,,USD,,,,,,,
+KO-EQ,Coca-Cola Co Common Stock,Equity,ISS_KO,,USD,,,,,,,
+AAPL-OPT-C-500-20270130,Apple Inc Jan-2027 500 Call,Equity Option,ISS_AAPL,AAPL-EQ,USD,,,2027-01-30,,500.0,Call,100.0
+AAPL-OPT-P-450-20270130,Apple Inc Jan-2027 450 Put,Equity Option,ISS_AAPL,AAPL-EQ,USD,,,2027-01-30,,450.0,Put,100.0
+JPM-OPT-C-300-20270619,JPMorgan Chase Jun-2027 300 Call,Equity Option,ISS_JPM,JPM-EQ,USD,,,2027-06-19,,300.0,Call,100.0
+MSFT-OPT-P-380-20261218,Microsoft Dec-2026 380 Put,Equity Option,ISS_MSFT,MSFT-EQ,USD,,,2026-12-18,,380.0,Put,100.0
+NVDA-OPT-C-140-20270320,NVIDIA Mar-2027 140 Call,Equity Option,ISS_NVDA,NVDA-EQ,USD,,,2027-03-20,,140.0,Call,100.0
+XOM-OPT-P-100-20261120,Exxon Mobil Nov-2026 100 Put,Equity Option,ISS_XOM,XOM-EQ,USD,,,2026-11-20,,100.0,Put,100.0
+UST-GB-2Y,US Treasury 2Y Note,Govt Bond,ISS_UST,,USD,,,2028-09-04,0.04,,,
+UST-GB-5Y,US Treasury 5Y Note,Govt Bond,ISS_UST,,USD,,,2031-09-04,0.04,,,
+UST-GB-10Y,US Treasury 10Y Note,Govt Bond,ISS_UST,,USD,,,2036-09-04,0.042,,,
+UST-GB-30Y,US Treasury 30Y Bond,Govt Bond,ISS_UST,,USD,,,2056-09-04,0.045,,,
+UKGILT-GB-5Y,UK Gilt 5Y,Govt Bond,ISS_UKGILT,,GBP,,,2031-09-04,0.04,,,
+UKGILT-GB-10Y,UK Gilt 10Y,Govt Bond,ISS_UKGILT,,GBP,,,2036-09-04,0.042,,,
+BUND-GB-5Y,German Bund 5Y,Govt Bond,ISS_BUND,,EUR,,,2031-09-04,0.025,,,
+BUND-GB-10Y,German Bund 10Y,Govt Bond,ISS_BUND,,EUR,,,2036-09-04,0.027,,,
+AAPL-CB-5Y,Apple Inc 5Y Corp Bond,Corp Bond,ISS_AAPL,,USD,,,2031-09-04,0.04,,,
+MSFT-CB-5Y,Microsoft Corp 5Y Corp Bond,Corp Bond,ISS_MSFT,,USD,,,2031-09-04,0.038,,,
+XOM-CB-7Y,Exxon Mobil 7Y Corp Bond,Corp Bond,ISS_XOM,,USD,,,2033-09-04,0.045,,,
+BAC-CB-5Y,Bank of America 5Y Corp Bond,Corp Bond,ISS_BAC,,USD,,,2031-09-04,0.05,,,
+JPM-CB-5Y,JPMorgan Chase 5Y Corp Bond,Corp Bond,ISS_JPM,,USD,,,2031-09-04,0.048,,,
+AAPL-CB-10Y,Apple Inc 10Y Corp Bond,Corp Bond,ISS_AAPL,,USD,,,2036-09-04,0.043,,,
+JPM-CB-2Y,JPMorgan Chase 2Y Corp Bond,Corp Bond,ISS_JPM,,USD,,,2028-09-04,0.045,,,
+JPM-CB-3Y,JPMorgan Chase 3Y Corp Bond,Corp Bond,ISS_JPM,,USD,,,2029-09-04,0.046,,,
+JPM-CB-10Y,JPMorgan Chase 10Y Corp Bond,Corp Bond,ISS_JPM,,USD,,,2036-09-04,0.05,,,
+XOM-CB-3Y,Exxon Mobil 3Y Corp Bond,Corp Bond,ISS_XOM,,USD,,,2029-09-04,0.042,,,
+EURUSD,Euro / US Dollar Spot,FX,,,,EUR,USD,,,,,
+GBPUSD,British Pound / US Dollar Spot,FX,,,,GBP,USD,,,,,
+USDJPY,US Dollar / Japanese Yen Spot,FX,,,,USD,JPY,,,,,
+AUDUSD,Australian Dollar / US Dollar Spot,FX,,,,AUD,USD,,,,,
+USDCHF,US Dollar / Swiss Franc Spot,FX,,,,USD,CHF,,,,,
+USDCAD,US Dollar / Canadian Dollar Spot,FX,,,,USD,CAD,,,,,

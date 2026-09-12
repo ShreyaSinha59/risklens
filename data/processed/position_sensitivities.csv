@@ -1,0 +1,41 @@
+position_id,book_id,instrument_id,asset_class,Delta,Gamma,Vega,DV01,CS01,book_name,desk_id,desk_name,asset_class_focus
+POS0001,BK_EQ_LS,AAPL-EQ,Equity,1200.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0002,BK_EQ_LS,MSFT-EQ,Equity,800.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0003,BK_EQ_LS,JPM-EQ,Equity,2000.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0004,BK_EQ_LS,XOM-EQ,Equity,-1500.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0005,BK_EQ_LS,AMZN-EQ,Equity,500.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0006,BK_EQ_LS,GOOGL-EQ,Equity,-700.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0007,BK_EQ_LS,META-EQ,Equity,600.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0008,BK_EQ_LS,NVDA-EQ,Equity,900.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0009,BK_EQ_LS,BAC-EQ,Equity,-1800.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0010,BK_EQ_LS,KO-EQ,Equity,2500.0,,,,,US Equity Long/Short,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0011,BK_EQ_DERIV,AAPL-OPT-C-500-20270130,Equity Option,2.0404546836752524,0.18940702647554633,15.379246358799648,,,Equity Derivatives,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0012,BK_EQ_DERIV,AAPL-OPT-P-450-20270130,Equity Option,2979.012476883778,-1.503439282579089,-122.07447391222301,,,Equity Derivatives,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0013,BK_EQ_DERIV,JPM-OPT-C-300-20270619,Equity Option,9704.479426726586,15.253725504715828,2160.4186310430964,,,Equity Derivatives,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0014,BK_EQ_DERIV,MSFT-OPT-P-380-20261218,Equity Option,-22.465877832479553,1.0131323635301153,175.42852178551064,,,Equity Derivatives,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0015,BK_EQ_DERIV,NVDA-OPT-C-140-20270320,Equity Option,2398.0854911737224,2.948003336527969,367.0558598493758,,,Equity Derivatives,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0016,BK_EQ_DERIV,XOM-OPT-P-100-20261120,Equity Option,0.02918270711660398,-0.006612813850986949,-0.09557285285887106,,,Equity Derivatives,DSK_EQ,Equities Desk,"Equity, Equity Option"
+POS0017,BK_RATES_GOVT,UST-GB-2Y,Govt Bond,,,,933.7848654836416,,Rates - Government Bonds,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0018,BK_RATES_GOVT,UST-GB-5Y,Govt Bond,,,,3458.2127839978784,,Rates - Government Bonds,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0019,BK_RATES_GOVT,UST-GB-10Y,Govt Bond,,,,7587.596708398312,,Rates - Government Bonds,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0020,BK_RATES_GOVT,UST-GB-30Y,Govt Bond,,,,-4101.206071955152,,Rates - Government Bonds,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0021,BK_RATES_GOVT,UKGILT-GB-5Y,Govt Bond,,,,1848.444535757415,,Rates - Government Bonds,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0022,BK_RATES_GOVT,UKGILT-GB-10Y,Govt Bond,,,,2637.884495977778,,Rates - Government Bonds,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0023,BK_RATES_GOVT,BUND-GB-5Y,Govt Bond,,,,2782.9578824630007,,Rates - Government Bonds,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0024,BK_RATES_GOVT,BUND-GB-10Y,Govt Bond,,,,-1683.4542438192293,,Rates - Government Bonds,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0025,BK_CREDIT_IG,AAPL-CB-5Y,Corp Bond,,,,1253.4987731981091,1253.4987731981091,Investment Grade Credit,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0026,BK_CREDIT_IG,MSFT-CB-5Y,Corp Bond,,,,1048.5070255664177,1048.5070255664177,Investment Grade Credit,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0027,BK_CREDIT_IG,XOM-CB-7Y,Corp Bond,,,,1125.2015681632329,1125.2015681632329,Investment Grade Credit,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0028,BK_CREDIT_IG,BAC-CB-5Y,Corp Bond,,,,641.7562681690324,641.7562681690324,Investment Grade Credit,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0029,BK_CREDIT_IG,JPM-CB-5Y,Corp Bond,,,,1701.8650836744346,1701.8650836744346,Investment Grade Credit,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0030,BK_CREDIT_IG,AAPL-CB-10Y,Corp Bond,,,,1436.7604169773404,1436.7604169773404,Investment Grade Credit,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0031,BK_CREDIT_CONC,JPM-CB-2Y,Corp Bond,,,,2213.286600964144,2213.286600964144,Credit - Concentrated Book,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0032,BK_CREDIT_CONC,JPM-CB-3Y,Corp Bond,,,,4048.93538781628,4048.93538781628,Credit - Concentrated Book,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0033,BK_CREDIT_CONC,JPM-CB-10Y,Corp Bond,,,,7381.747772844508,7381.747772844508,Credit - Concentrated Book,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0034,BK_CREDIT_CONC,XOM-CB-3Y,Corp Bond,,,,537.3930147530045,537.3930147530045,Credit - Concentrated Book,DSK_FI,Fixed Income Desk,"Govt Bond, Corp Bond"
+POS0035,BK_FX_MAJORS,EURUSD,FX,,,,,,FX Majors,DSK_FX,FX Desk,FX
+POS0036,BK_FX_MAJORS,GBPUSD,FX,,,,,,FX Majors,DSK_FX,FX Desk,FX
+POS0037,BK_FX_MAJORS,USDJPY,FX,,,,,,FX Majors,DSK_FX,FX Desk,FX
+POS0038,BK_FX_MAJORS,AUDUSD,FX,,,,,,FX Majors,DSK_FX,FX Desk,FX
+POS0039,BK_FX_MAJORS,USDCHF,FX,,,,,,FX Majors,DSK_FX,FX Desk,FX
+POS0040,BK_FX_MAJORS,USDCAD,FX,,,,,,FX Majors,DSK_FX,FX Desk,FX

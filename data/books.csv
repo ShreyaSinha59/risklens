@@ -1,0 +1,7 @@
+book_id,book_name,desk_id
+BK_EQ_LS,US Equity Long/Short,DSK_EQ
+BK_EQ_DERIV,Equity Derivatives,DSK_EQ
+BK_RATES_GOVT,Rates - Government Bonds,DSK_FI
+BK_CREDIT_IG,Investment Grade Credit,DSK_FI
+BK_CREDIT_CONC,Credit - Concentrated Book,DSK_FI
+BK_FX_MAJORS,FX Majors,DSK_FX
