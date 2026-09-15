@@ -1,0 +1,22 @@
+name: Keep Render services awake
+
+# Render's free web services sleep after ~15 min of no traffic, which shows
+# up as a 502 on the next visitor's first request. Pinging both services
+# every 10 minutes keeps them from ever going idle that long. Costs nothing
+# (GitHub Actions minutes are free for public repos) and each ping is
+# allowed to fail without failing the workflow, since a failure here just
+# means "it was already asleep" - not something that needs an alert.
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping API
+        run: curl -sf -m 30 https://risklens-api-uqkq.onrender.com/health || echo "API did not respond in time (likely waking up) - not a failure"
+      - name: Ping Dashboard
+        run: curl -sf -m 30 https://risklens-dashboard-1o1p.onrender.com/ || echo "Dashboard did not respond in time (likely waking up) - not a failure"
